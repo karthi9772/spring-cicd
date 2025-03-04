@@ -32,3 +32,13 @@ jobs:
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+
+    # - name: Build & push Docker image
+    #   uses: mr-smithers-excellent/docker-build-push@v6
+    #     with:
+    #       image: repo/image
+    #       tags: v1, latest
+    #       registry: registry-url.io
+    #       dockerfile: Dockerfile.ci
+    #       username: ${{ secrets.DOCKER_USERNAME }}
+    #       password: ${{ secrets.DOCKER_PASSWORD }}
