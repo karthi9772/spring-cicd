@@ -4,19 +4,12 @@ FROM openjdk:21-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install Maven
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
+# Copy the pre-built JAR file from your local machine to the container
+COPY target/spring-learn-0.0.1-SNAPSHOT.jar /app/spring-learn.jar
 
-# Copy your application files into the container
-COPY . /app
+# Expose the port your app will run on (use 8081 to avoid Jenkins conflict)
+EXPOSE 8081
 
-# Run Maven to build the application (if you want to build it in the container)
-RUN mvn clean install
+# Run the Java application (with the correct JAR file name)
+CMD ["java", "-jar", "/app/spring-learn.jar"]
 
-# Expose the port your app will run on
-EXPOSE 8080
-
-# Run the Java application (change to your generated JAR file)
-CMD ["java", "-jar", "target/spring-learn.jar"]
