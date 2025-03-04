@@ -19,4 +19,4 @@ RUN mvn clean install
 EXPOSE 8080
 
 # Run the Java application (change to your generated JAR file)
-CMD ["java", "-jar", "target/your-application.jar"]
+CMD ["java", "-jar", "target/spring-learn.jar"]
