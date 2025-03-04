@@ -18,7 +18,7 @@ public class Cont {
 	
 	@GetMapping("/")
 	public String hello() {
-		return "hello World";
+		return "hello World!";
 	}
 	
 	@GetMapping("/img")
